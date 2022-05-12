@@ -1,0 +1,59 @@
+<!--Tecumseh McMullin-->
+<!DOCTYPE html>
+<!--this tells the browser that the default language of this website is english-->
+<html lang="en">
+<!--This is where all the metadata is held-->
+<head>
+    <!--Defines the the character encoding-->
+    <meta charset="UTF-8">
+    <!--compatible with multiple browsers-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--sets how website will look on different devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--title of the tab-->
+    <title>Blastoff Counter</title>
+</head>
+
+<!--begins the body and basic css for it-->
+<body style="text-align:center; background-color: blue;">
+    <!--biggest/most important header with basic css for it-->
+    <h1 style="background-color:purple; color:white;">Blastoff Counter</h1>
+    <!--starts first paragraph to give user the user ready instructions-->
+    <p style="font:bold">to reset, click reset button, then press start</p>
+    <!--creates the start/resume button for the counte and sets the interval for the function to 1 second-->
+    <button onclick="countdownID = setInterval(blastoffCounter , 1000)">Start</button>
+    <!--create the stop/pause button for the counter-->
+    <button onclick="clearInterval(countdownID)">Stop</button>
+    <!--creates the reset button for the counter-->
+    <button onclick="currTime = 10">Reset</button>
+
+    <!--displayes the countdown numbers and "blastoff"-->
+    <p id="DisplayCountdown"></p>
+
+    <!--starts the javascript section-->
+    <script>
+
+        //initializes the countdownID variable
+        var countdownID;
+        //initializes and defines the currTime variable
+        var currTime = 10;
+        //library function that controls the countdown
+        function blastoffCounter(){
+            //creates and displays DisplayCountdown and defines it as currTime
+            document.getElementById("DisplayCountdown").innerHTML = currTime;
+            //Decreases currTime by 1
+            currTime = currTime - 1;
+            //Starts the if statement that tells the countdown to say "Blast Off"
+            if(currTime==-1){
+                //displays DisplayCountdown as "Blast Off!!!!"
+                document.getElementById("DisplayCountdown").innerHTML = "Blast Off!!!!";
+                //Clears the interval / stops the function
+                clearInterval(countdownID);
+            }
+        }
+    //end of the Javascript programming
+    </script>
+<!--end of the html body-->
+</body>
+<!--end of the html code-->
+</html>
